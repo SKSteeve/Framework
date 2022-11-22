@@ -6,19 +6,12 @@ use \App\Controllers\TestController;
 
 require_once '../vendor/autoload.php';
 
-define('BASE_PATH', rtrim(preg_replace('#[/\\\\]{1,}#', '/', __DIR__), '/') . '/');
-
 $router = new Router(new Request());
 
-$router->get('/abv/w', ['TestController', 'index']);
-$router->post('/', ['TestController', 'edit']);
+// Register Your Routs here
+
+$router->get('/', ['TestController', 'index']);
+$router->get('/form', ['TestController', 'edit']);
+$router->post('/form', ['TestController', 'create']);
 
 $router->run();
-
-//echo "<pre>";
-//print_r($router);
-//print_r($_SERVER);
-
-//$view = new \App\Controllers\TestController();
-//$view->index();
-

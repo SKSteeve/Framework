@@ -10,12 +10,16 @@
 <body>
     <h1>Index Test Page</h1>
 
-    <h4>Example Passed Data:</h4>
-    <ul>
-        <?php foreach ($data as $key => $val) {
+    <a href="/Framework/Public/form">Go to Create Page</a>
+
+    <?php if($success) {
+        echo "<strong>Success Message: $success</strong><br>";
+        echo "<ul>";
+        foreach ($data as $key => $val) {
             echo "<li>" . $val . "</li>";
-        } ?>
-    </ul>
+        }
+        echo "</ul>";
+    } ?>
 
     <?php if($error) {
         echo "<strong>Error Message: $error</strong>";
