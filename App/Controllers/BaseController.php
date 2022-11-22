@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Providers\Interfaces\IRender;
 use App\Providers\View;
 
-abstract class BaseController implements IRender
+class BaseController implements IRender
 {
     /**
      * @var View

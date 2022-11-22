@@ -30,6 +30,13 @@
 #### 3. Models
 	You can define your models inside Framework/App/Models
 	
+	Change the db.ini variables to make connection with your Database
+	Once you created your database and changed db.ini files, you can execute the .example.sql to be able to test
+	Define protected $table for the model.
+	They should extend BaseModel to use:
+	*$instance->create([]);* method that accepts array with key => values representing column and value to be saved 
+	*$instance->find($id)* method that finds the object
+	
 #### 4. Views
 	You can define your models inside Framework/Resources
 	
