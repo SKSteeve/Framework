@@ -2,7 +2,6 @@
 
 use App\Providers\Router;
 use App\Providers\Request;
-use \App\Controllers\TestController;
 
 require_once '../vendor/autoload.php';
 
