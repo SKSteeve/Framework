@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Controllers\TestController;
-
 class Router
 {
     private $request;
@@ -45,16 +43,17 @@ class Router
 
     public function run()
     {
-        $requestUrl = str_replace('/framework/Public', '', trim($this->request->requestUri));
+        $requestUrl = str_replace('/Framework/Public', '', trim($this->request->requestUri));
+        $requestUrl = parse_url($requestUrl)['path'];
         $requestMethod = $this->request->requestMethod;
 
         foreach ($this->routes as $routeAndMethod => $handlers) {
             list($route, $method) = explode('_', $routeAndMethod);
             if($route == $requestUrl && $requestMethod == $method) {
                 list($controller, $handleMethod) = $handlers;
-                $controllerName = ("\\App\Controllers\\" . $controller);
-                $controllerInstance = new $controllerName;
-                return $controllerInstance->$handleMethod();
+                $controllerPath = ("\\App\Controllers\\" . $controller);
+                $controllerInstance = new $controllerPath;
+                return $controllerInstance->$handleMethod($this->request);
             }
         }
         return $this->defaultRequestHandler();
