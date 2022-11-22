@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-class View
+use App\Providers\Interfaces\IRender;
+
+class View implements IRender
 {
-    const VIEW_FOLDER = "./Resources/Views/";
+    const VIEW_FOLDER = __DIR__ . "/../../Resources/Views/";
     const VIEW_EXTENSION = ".php";
 
     /**
@@ -13,7 +15,7 @@ class View
      * @param $error
      * @return mixed
      */
-    public function render(string $viewName, $data = null, $error = null)
+    public function render($viewName, $data = [], $error = null, $success = null)
     {
         return require_once self::VIEW_FOLDER
             . $viewName
