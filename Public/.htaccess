@@ -3,7 +3,7 @@ RewriteEngine on
 
 # Edit the app path
 # Example: For http://localhost/framework/Public/  in RewriteBase we put the path to index.php
-RewriteBase /framework/Public/
+RewriteBase /Framework/Public/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
