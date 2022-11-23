@@ -9,7 +9,10 @@
 * **cd Framework**
 * **composer dump-autoload**
 
-#### 3. Now open http://localhost/Framework/Public/
+#### 3. Change the db.ini variables to make connection with your Database
+* You can execute the .example.sql to have example on the test Model User *
+
+#### 4. Now open http://localhost/Framework/Public/
 
 #
 
@@ -30,17 +33,15 @@
 #### 3. Models
 	You can define your models inside Framework/App/Models
 	
-	Change the db.ini variables to make connection with your Database
-	Once you created your database and changed db.ini files, you can execute the .example.sql to be able to test
 	Define protected $table for the model.
 	They should extend BaseModel to use:
 	*$instance->create([]);* method that accepts array with key => values representing column and value to be saved 
 	*$instance->find($id)* method that finds the object
 	
 #### 4. Views
-	You can define your models inside Framework/Resources
+	You can define your views inside Framework/Resources/Views
 	
 	They should be .php files to use:
-	*$data* array that will give you passed data key => value
-	*$error* string that will give you if there was any error message passed form the controller
-	*$success* string that will give you if there was any success messsage passed form the controller
+	*$data* array that will give you passed data key => value from the controller
+	*$error* string giving you error message if there was any error passed form the controller
+	*$success* string giving you success message if there was any success passed form the controller
